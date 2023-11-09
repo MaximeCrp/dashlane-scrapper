@@ -1,11 +1,19 @@
 const FILTERS_TEXT = "Active users\nPending invites\nRemoved users";
 const FILTERS_CONTAINER_CLASS = "statusFilters--SMNEn98faE";
-const CHECKED_CHECKBOX_CLASS = "checkboxChecked--vFOuF2l2VW";
+const CHECKBOX_CLASS = "ui-components-1muyl6o";
+const CHECKBOX_STATE_ATTRIBUTE_KEY = 'data-state'
+const CHECKBOX_STATE_ATTRIBUTE_VALUE_WHEN_CHECKED = 'checked'
 const NAVIGATION_CONTAINER_CLASS = "container--biH1xFvLjC";
 const DISABLED_LI_BUTTON_CLASS = "disabled--XMtY1YZUkS";
 
 function isFiltersOrderStillCorrect(filters) {
   return filters.innerText === FILTERS_TEXT;
+}
+
+function isCheckboxChecked(checkboxElement) {
+  const checkedAttributeValue = checkboxElement.getAttribute(CHECKBOX_STATE_ATTRIBUTE_KEY);
+
+  return CHECKBOX_STATE_ATTRIBUTE_VALUE_WHEN_CHECKED === checkedAttributeValue;
 }
 
 /**
@@ -18,17 +26,22 @@ function setupFilters() {
   if (filterContainers.length === 0) return;
   const filters = filterContainers[0];
   if (!isFiltersOrderStillCorrect(filters)) return;
-  const activeUsersFilter = filters.children[0];
-  if (!activeUsersFilter.classList.contains(CHECKED_CHECKBOX_CLASS)) {
-    activeUsersFilter.click();
+
+  const checkboxCollection = filters.getElementsByClassName(
+    CHECKBOX_CLASS
+  );
+
+  const activeUsersCheckbox = checkboxCollection[0];
+  if (!isCheckboxChecked(activeUsersCheckbox)) {
+    activeUsersCheckbox.click();
   }
-  const pendingInvitesFilter = filters.children[1];
-  if (pendingInvitesFilter.classList.contains(CHECKED_CHECKBOX_CLASS)) {
-    pendingInvitesFilter.click();
+  const pendingInvitesCheckbox = checkboxCollection[1];
+  if (isCheckboxChecked(pendingInvitesCheckbox)) {
+    pendingInvitesCheckbox.click();
   }
-  const removedUsersFilter = filters.children[2];
-  if (removedUsersFilter.classList.contains(CHECKED_CHECKBOX_CLASS)) {
-    removedUsersFilter.click();
+  const removedUsersCheckbox = checkboxCollection[2];
+  if (isCheckboxChecked(removedUsersCheckbox)) {
+    removedUsersCheckbox.click();
   }
 }
 
