@@ -4,7 +4,6 @@ const CHECKBOX_CLASS = "ui-components-1muyl6o";
 const CHECKBOX_STATE_ATTRIBUTE_KEY = 'data-state'
 const CHECKBOX_STATE_ATTRIBUTE_VALUE_WHEN_CHECKED = 'checked'
 const NAVIGATION_CONTAINER_CLASS = "container--biH1xFvLjC";
-const DISABLED_LI_BUTTON_CLASS = "disabled--XMtY1YZUkS";
 
 function isFiltersOrderStillCorrect(filters) {
   return filters.innerText === FILTERS_TEXT;
@@ -54,8 +53,8 @@ function tryToNavigateToNextPage() {
     return false;
   }
   const topNavigation = navigationContainers[0];
-  const nextPageButton = topNavigation.getElementsByTagName("li")[1];
-  if (nextPageButton.classList.contains(DISABLED_LI_BUTTON_CLASS)) {
+  const nextPageButton = topNavigation.getElementsByTagName("button")[1];
+  if (nextPageButton.disabled) {
     console.log("This was already last page.");
     return false;
   }
