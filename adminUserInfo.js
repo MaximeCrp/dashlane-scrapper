@@ -1,6 +1,6 @@
 const FILTERS_TEXT = "Active users\nPending invites\nRemoved users";
 const FILTERS_CONTAINER_CLASS = "statusFilters--SMNEn98faE";
-const CHECKBOX_CLASS = "ui-components-1muyl6o";
+const CHECKBOX_CLASS = "ui-components-1qdwm9g";
 const CHECKBOX_STATE_ATTRIBUTE_KEY = 'data-state'
 const CHECKBOX_STATE_ATTRIBUTE_VALUE_WHEN_CHECKED = 'checked'
 const NAVIGATION_CONTAINER_CLASS = "container--biH1xFvLjC";
