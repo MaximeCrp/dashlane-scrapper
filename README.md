@@ -1,6 +1,7 @@
 # Dashlane scrapper
 
 Tired of copy/pasting info from the Dashlane dashboard manually and for every page? This is for you
+Files are minified with: https://minify-js.com/
 
 ## Admin panel
 
